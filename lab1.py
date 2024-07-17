@@ -36,8 +36,8 @@ SECRET_KEY = 'secret'
 flask_app.config['SECRET_KEY'] = SECRET_KEY
 # используем капчу и полученные секретные ключи с сайта Google
 flask_app.config['RECAPTCHA_USE_SSL'] = False
-flask_app.config['RECAPTCHA_PUBLIC_KEY'] = '6LcE15MpAAAAALdaTdqDf2w3EcZGCUqpNgA6EjX5'
-flask_app.config['RECAPTCHA_PRIVATE_KEY'] = '6LcE15MpAAAAAIXMEr6N_q-Qs3Lzr_zbQDP3vPGT'
+flask_app.config['RECAPTCHA_PUBLIC_KEY'] = '6Ldn7xEqAAAAAJQ3CdItS8AUZiUCqJ1PDGhihcdW'
+flask_app.config['RECAPTCHA_PRIVATE_KEY'] = '6Ldn7xEqAAAAAHimzM0R6aQoGHqzOQd38yWr8MYQ'
 flask_app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 
 # Приложение Flask будет запускаться поверх FastAPI
