@@ -1,0 +1,10 @@
+uvicorn
+pillow
+fastapi
+Flask
+WTForms
+Werkzeug
+pytest
+requests
+numpy
+matplotlib
