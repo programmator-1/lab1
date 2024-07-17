@@ -85,4 +85,3 @@ def create_color_distribution_graph(ifname: str, ofname: str):
     plt.plot(b, color="blue")
     plt.savefig(ofname, format="JPEG")
     plt.close()
-
