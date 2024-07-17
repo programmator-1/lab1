@@ -8,3 +8,8 @@ pytest
 requests
 numpy
 matplotlib
+jinja2
+pydantic
+python-multipart
+flask-wtf
+flask-bootstrap
