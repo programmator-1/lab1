@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка изображений</title>
+</head>
+<body>
+ <h2>Форма ввода данных для изображений</h2>
+    <form  action="image_form"  enctype="multipart/form-data"  method="post">
+        <table>
+        <tr>
+            <td><span>Размер сдвига:</span></td>
+        </tr>
+        <tr>
+            <td><input type="range" id="sz" name="sz" value="{{size}}" oninput="out.value=parseInt(sz.value)" min="0" max="256"></td>
+            <td><output name="out" for="sz">{{size}}</output></td>
+        </tr>
+        </table>
+        <input name="file" type="file">
+        <p>
+        <input type="submit" value="Обработать" />
+        </p>
+    </form>
+{% if ready %}
+<table>
+    <tr>
+        <td><span>Оригинал:</span></td>
+    </tr>
+    <tr>
+        <td>
+            <img src = "{{ images[0] }}" width="512">
+        </td>
+    </tr>
+
+    <tr>
+        <td><span>Результат:</span></td>
+    </tr>
+    <tr>
+        <td>
+            <img src = "{{ images[1] }}" width="512">
+        </td>
+    </tr>
+
+    <tr>
+        <td><span>Распределение цветов:</span></td>
+    </tr>
+    <tr>
+        <td>
+            <img src = "{{ images[2] }}" width="512">
+        </td>
+    </tr>
+
+</table>
+{% endif %}
+</body>
+</html>

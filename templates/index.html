@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- задаем заголовок страницы -->
+{% block title %}Главная{% endblock %}
+<!-- блок body -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <p align="justify">
+                Веб-приложение формирует новое изображение на основе исходного
+                путем сдвига по замкнутым прямоугольным составляющим на
+                определенное число пикселов, которое задает пользователь.
+            </p>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h3 align="center">
+            <a href="/v1/image_form">Обработка изображений</a>
+            </h3>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+{% endblock %}

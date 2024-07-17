@@ -1,0 +1,85 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- задаем заголовок страницы -->
+{% block title %}Обработка изображений{% endblock %}
+<!-- блок body -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Форма ввода данных для изображений</h4>
+            <p align="justify">
+                Веб-приложение формирует новое изображение на основе исходного
+                путем сдвига по замкнутым прямоугольным составляющим на
+                определенное число пикселов, которое задает пользователь.
+            </p>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            {{ wtf.quick_form(form, method='post',enctype="multipart/form-data", action="image_form")}}
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    {% if ready %}
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h2 align="center">Изображения:</h2>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Оригинал:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{images[0]}} class="img-rounded img-responsive" alt="Оригинал"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Результат:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{images[1]}} class="img-rounded img-responsive" alt="Результат"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Распределение цветов:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{images[2]}} class="img-rounded img-responsive" alt="Распределение цветов"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
