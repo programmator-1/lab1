@@ -8,4 +8,4 @@ requests
 pillow
 numpy
 matplotlib
-uvicorn
+gunicorn
