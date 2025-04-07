@@ -1,0 +1,96 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- задаем заголовок страницы -->
+{% block title %}Приложение обработки изображений{% endblock %}
+<!-- блок body -->
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            {{ wtf.quick_form(form, method='post',enctype="multipart/form-data", action="trans")}}
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h2 align="center">Изображения:</h2>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    {% if params.orig %}
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Исходное:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.orig}} class="img-rounded img-responsive" alt="Original Image"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Новое:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.trans}} class="img-rounded img-responsive" alt="Transformed Image"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Распределение цветов исходного:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.orig_distr}} class="img-rounded img-responsive" alt="Color Distribution Old"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Распределение цветов нового:</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.trans_distr}} class="img-rounded img-responsive" alt="Color Distribution New"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    {% else %}
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <p>Пока еще нет изображения</p>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

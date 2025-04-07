@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- задаем заголовок страницы -->
+{% block title %}Приложение обработки изображений{% endblock %}
+<!-- блок body -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <p align="justify">
+                Веб-приложение должно формировать новое изображение на основе 
+                исходного путем умножения изображения на периодическую функцию 
+                sin или cos с нормировкой, период изменения задает пользователь, 
+                аргумент функции определяется вертикальной или горизонтальной 
+                составляющей.  Нарисовать график распределения цветов для нового
+                и исходного изображения.
+            </p>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" align="center">
+            <a href="trans">Начать...</a>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>
+{% endblock %}

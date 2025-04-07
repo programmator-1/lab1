@@ -1,0 +1,10 @@
+flask
+flask-wtf
+flask-bootstrap
+waitress
+WTForms
+Werkzeug
+requests
+pillow
+numpy
+matplotlib
