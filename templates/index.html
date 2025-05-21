@@ -1,0 +1,92 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- задаем заголовок страницы -->
+{% block title %}Приложение для трансформации изображений{% endblock %}
+<!-- блок body -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <p align="justify">
+                Это веб-приложение меняет местами правую и левую часть картинки
+                либо верхнюю и нижнюю, в зависимости от желания пользователя.
+            </p>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            {{ wtf.quick_form(form, method='post',enctype="multipart/form-data", action="/")}}
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h2 align="center">Изображения:</h2>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    {% if params.original %}
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Оригинал</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.original}} class="img-rounded img-responsive" alt="Original"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">Результат</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.swapped}} class="img-rounded img-responsive" alt="Swapped"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 align="center">График распределения цветов</h4>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <img src={{params.colors}} class="img-rounded img-responsive" alt="Colors"/>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    {% else %}
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <p>Пока нет изображений</p>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
